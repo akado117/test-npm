@@ -14,7 +14,9 @@
   },
   "homepage": "https://github.com/scriptdrop/webpack-config#readme",
   "files": [
-    "webpack.config.js"
+    "webpack.config.js",
+    "bin/",
+    "js/"
   ],
   "engines": {
     "node": ">=8.9.1"

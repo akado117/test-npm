@@ -9,6 +9,9 @@
   "repository": "github:ScriptDrop/webpack-config",
   "author": "ScriptDrop, Inc.",
   "license": "MIT",
+  "bin": {
+    "create": "./bin/create"
+  },
   "bugs": {
     "url": "https://github.com/scriptdrop/webpack-config/issues"
   },

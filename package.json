@@ -10,7 +10,7 @@
   "author": "ScriptDrop, Inc.",
   "license": "MIT",
   "bin": {
-    "create": "./bin/create"
+    "create": "./bin/create.sh"
   },
   "bugs": {
     "url": "https://github.com/scriptdrop/webpack-config/issues"

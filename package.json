@@ -1,6 +1,6 @@
 {
   "name": "@scriptdrop/webpack-config",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An opinionated webpack config for ScriptDrop apps.",
   "main": "webpack.config.js",
   "scripts": {

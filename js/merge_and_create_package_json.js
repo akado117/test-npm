@@ -2,6 +2,8 @@
 
 const fs = require('fs')
 
+const templateName = "package-template.json"
+
 function getPackagePath() {
     const flagIndex = process.argv.findIndex(arg => arg == "-d" || arg == "--directory")
     return process.argv[flagIndex + 1]
@@ -33,7 +35,7 @@ async function readParentTemplate() {
 
 async function readTemplate(path) {
     return new Promise((res, rej) => {
-        fs.readFile(`${path}/package-template.json`, (err, data) => err && rej(err) || res(JSON.parse(data)))
+        fs.readFile(`${path}/${templateName}`, (err, data) => err && rej(err) || res(JSON.parse(data)))
     })
 }
 
@@ -41,11 +43,18 @@ function createPackageJSON(data, path) {
     fs.writeFileSync(`${path}/package.json`, JSON.stringify(data, '', 2))
 }
 
+
 async function main() {
     const templatePath = getPackagePath()
-    const [parent, child] = await Promise.all([readParentTemplate(), readTemplate(templatePath)])
-    const mergedTemplate = mergeJsons(parent, child)
-    createPackageJSON(mergedTemplate, templatePath)
+
+    if (fs.existsSync(`${templatePath}/${templateName}`)) {
+        console.log(`Creating package.json for ${templatePath}`)
+        const [parent, child] = await Promise.all([readParentTemplate(), readTemplate(templatePath)])
+        const mergedTemplate = mergeJsons(parent, child)
+        createPackageJSON(mergedTemplate, templatePath)
+    } else {
+        console.log(`Unable to create package.json. Please verify ${templatePath} has a ${templateName}`)
+    }
 }
 
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
+const path = require('path')
 
 const templateName = "package-template.json"
 
@@ -29,7 +30,7 @@ function mergeJsons(parent, child) {
 
 async function readParentTemplate() {
     return new Promise((res, rej) => {
-        fs.readFile(`package.json`, (err, data) => err && rej(err) || res(JSON.parse(data)))
+        fs.readFile(path.join(__dirname, '../package.json'), (err, data) => err && rej(err) || res(JSON.parse(data)))
     })
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "test-npm",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "An opinionated webpack config for ScriptDrop apps.",
   "main": "webpack.config.js",
   "scripts": {
@@ -17,15 +17,19 @@
   },
   "homepage": "https://github.com/scriptdrop/webpack-config#readme",
   "files": [
-    "webpack.config.js",
+    "webpack.common-tools.js",
     "bin/",
     "js/"
   ],
   "engines": {
     "node": ">=8.9.1"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@babel/core": "7.7.2",
+    "@babel/plugin-proposal-class-properties": "7.7.0",
+    "@babel/preset-env": "7.7.1",
+    "@babel/preset-react": "7.7.0",
     "babel-eslint": "10.0.3",
     "babel-loader": "8.0.4",
     "clean-webpack-plugin": "3.0.0",
@@ -38,6 +42,7 @@
     "extract-text-webpack-plugin": "4.0.0-beta.0",
     "html-webpack-plugin": "3.2.0",
     "jest": "24.9.0",
+    "mini-css-extract-plugin": "0.4.0",
     "style-loader": "1.0.0",
     "webpack": "4.29.0",
     "webpack-dev-server": "3.8.1",

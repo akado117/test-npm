@@ -52,8 +52,9 @@ async function main() {
         const [parent, child] = await Promise.all([readParentTemplate(), readTemplate(templatePath)])
         const mergedTemplate = mergeJsons(parent, child)
         createPackageJSON(mergedTemplate, templatePath)
+        console.log('Created package.json\n')
     } else {
-        console.log(`Unable to create package.json. Please verify ${templatePath} has a ${templateName}`)
+        console.log(`Unable to create package.json. Please verify ${templatePath} has a ${templateName}\n`)
     }
 }
 
